@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narrative Vertical Slice", "Assembly-CSharp.csproj", "{BE87031E-CC72-D458-AF9D-C6865E07F741}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narrative Vertical Slice", "Assembly-CSharp-Editor.csproj", "{AFA220EC-4C99-0EFB-6DAC-3889C3E9C3FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE87031E-CC72-D458-AF9D-C6865E07F741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE87031E-CC72-D458-AF9D-C6865E07F741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE87031E-CC72-D458-AF9D-C6865E07F741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE87031E-CC72-D458-AF9D-C6865E07F741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFA220EC-4C99-0EFB-6DAC-3889C3E9C3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA220EC-4C99-0EFB-6DAC-3889C3E9C3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA220EC-4C99-0EFB-6DAC-3889C3E9C3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA220EC-4C99-0EFB-6DAC-3889C3E9C3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
