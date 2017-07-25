@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XboxCtrlrInput;
 
 /// <summary>
 /// Class works through a managed polling of input, unity character controller,
@@ -274,7 +275,7 @@ public class FPS_Player : MonoBehaviour
     /// <summary>
     /// True if currently carrying a physics object
     /// </summary>
-    private bool m_bPhysCarry = false;
+    //private bool m_bPhysCarry = false;
 
     #endregion
 
@@ -285,7 +286,7 @@ public class FPS_Player : MonoBehaviour
     /// <summary>
     /// Player Crawl Speed - m/s
     /// </summary>
-	public float m_fProneSpeed = 1.0f;
+	//public float m_fProneSpeed = 1.0f;
     /// <summary>
     /// Player Crouch Speed - m/s
     /// </summary>
@@ -303,7 +304,7 @@ public class FPS_Player : MonoBehaviour
     /// <summary>
     /// Player Sprint Speed - m/s
     /// </summary>
-	public float m_fSprintSpeed = 10.0f;
+	//public float m_fSprintSpeed = 10.0f;
 
     /* Speed ratios for motion along local X and -Z axis */
     /// <summary>
@@ -332,6 +333,13 @@ public class FPS_Player : MonoBehaviour
     /// Ratio of jump impulse if prone
     /// </summary>
 	public float m_fProneJumpRatio = 0.65f;
+
+	public bool m_canJump = true;
+
+	public bool m_runByDefault = true;
+
+	public bool m_runKeyEnabled = true;
+
 
     #endregion
 
@@ -470,24 +478,38 @@ public class FPS_Player : MonoBehaviour
 //            {
 //                m_fCurrentSpeed = m_fSprintSpeed;
 //            }
-//            else if (m_BtnWalk.CurrentState != ControllerButtonState.None)
-//            {
-//                m_fCurrentSpeed = m_fWalkSpeed;
-//            }
-//            else
-//            {
-                m_fCurrentSpeed = m_fRunSpeed;
-//            }
+//            else 
+			if (m_runKeyEnabled) {
+				if (m_BtnSprint.CurrentState != ControllerButtonState.None) {
+					if (m_runByDefault) {
+						m_fCurrentSpeed = m_fWalkSpeed;
+					} else {
+						m_fCurrentSpeed = m_fRunSpeed;
+					}
+				} else {
+					if (m_runByDefault) {
+						m_fCurrentSpeed = m_fRunSpeed;
+					} else {
+						m_fCurrentSpeed = m_fWalkSpeed;
+					}
+				}
+			} else {
+				if (m_runByDefault) {
+					m_fCurrentSpeed = m_fRunSpeed;
+				} else {
+					m_fCurrentSpeed = m_fWalkSpeed;
+				}
+			}
         }
         else if (m_ePose == Pose.Crouch && m_eJump == Jump.Grounded)
         {
 			
             m_fCurrentSpeed = m_fCrouchSpeed;
         }
-        else if (m_ePose == Pose.Prone)
-        {
-            m_fCurrentSpeed = m_fProneSpeed;
-        }
+//        else if (m_ePose == Pose.Prone)
+//        {
+//            m_fCurrentSpeed = m_fProneSpeed;
+//        }
     }
 
     /// <summary>
@@ -622,9 +644,9 @@ public class FPS_Player : MonoBehaviour
         {
             m_v3Motion *= m_fAirborneRatio;
         }
-
+			
         // If jump pressed and jump hitbox is clear, jump.
-        if ((m_BtnJump.CurrentState == ControllerButtonState.Down) && (m_eJump == Jump.Grounded))
+		if ((m_BtnJump.CurrentState == ControllerButtonState.Down) && (m_eJump == Jump.Grounded) && m_canJump)
         {
             // Head butt things
             if (m_HeightJump.Colliding)

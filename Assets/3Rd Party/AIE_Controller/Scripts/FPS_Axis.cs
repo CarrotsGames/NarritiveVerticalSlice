@@ -29,6 +29,13 @@ public class FPS_Axis : MonoBehaviour
         get { return m_bInvertAxis ? -m_fValue : m_fValue ; }
     }
 
+	private FPS_InputManager fps_inputManager;
+
+	void Start(){
+		fps_inputManager = GetComponentInParent<FPS_InputManager> ();
+	}
+
+
     /// <summary>
     /// Convert the axis into absolute up/down/none ( 1 / -1 / 0 )
     /// </summary>
@@ -50,7 +57,7 @@ public class FPS_Axis : MonoBehaviour
     public void UpdateAxis()
     {
 		if (Input.GetAxis (m_AxisName) == 0) {
-			m_fValue = XCI.GetAxis(xboxAxis);
+			m_fValue = XCI.GetAxis(xboxAxis,fps_inputManager.xboxController);
 		} else {
 			m_fValue = Input.GetAxis(m_AxisName);
 		}

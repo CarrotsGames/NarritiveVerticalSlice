@@ -33,6 +33,12 @@ public class FPS_Button : MonoBehaviour
     /// </summary>
     private ControllerButtonState m_eButtonState = ControllerButtonState.None;
 
+	private FPS_InputManager fps_inputManager;
+
+	void Start(){
+		fps_inputManager = GetComponentInParent<FPS_InputManager> ();
+	}
+
     /// <summary>
     /// Read only current state
     /// </summary>
@@ -72,7 +78,7 @@ public class FPS_Button : MonoBehaviour
 		if (useMouse) {
 			bState = Input.GetMouseButton (mouseButton);
 		} else {
-			bState = Input.GetKey (keyboardInputButton) || XCI.GetButton(xboxButton);
+			bState = Input.GetKey (keyboardInputButton) || XCI.GetButton(xboxButton,fps_inputManager.xboxController);
 		}
 
 

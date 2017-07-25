@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using XboxCtrlrInput;
 
 /// <summary>
 /// Class updates all child buttons and axes
@@ -24,6 +25,9 @@ public class FPS_InputManager : MonoBehaviour
     /// List of all located child axis scripts
     /// </summary>
     private FPS_Axis[] m_Axes;
+
+
+	public XboxController xboxController = XboxController.All;
 
     /// <summary>
     /// Gathers all buttons and Axes
