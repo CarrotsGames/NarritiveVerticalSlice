@@ -108,7 +108,6 @@
      <Compile Include="Assets\3Rd Party\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\3Rd Party\Standard Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\Scripts\Audio.cs" />
-     <Compile Include="Assets\Scripts\test.cs" />
      <None Include="Assets\3Rd Party\Optimize_SDKohaku-Chanz\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\3Rd Party\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\3Rd Party\NatureStarterKit2\info.txt" />
